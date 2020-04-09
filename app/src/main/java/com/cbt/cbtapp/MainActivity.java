@@ -27,30 +27,29 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
 
         DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
         DatabaseReference talentLeasingRef = rootRef.child("Tabela-1").child("TalentLeasing");
 
-        ValueEventListener valueEventListener = new ValueEventListener() {
+        talentLeasingRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<String> list = new ArrayList<>();
+                for(DataSnapshot ds: dataSnapshot.getChildren()){
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()) {
-
-
-                    String arrival = ds.child("Arrival").getValue(String.class);
+                    Log.w("ds", String.valueOf(ds));
+                    Log.w("ds", String.valueOf(ds.child("YearsOfExperience")));
+                    Log.w("ds", String.valueOf(ds.child("Keywords")));
+                    Log.w("ds", String.valueOf(ds.child("Nationality")));
 
                 }
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w("Firebase-Error", String.valueOf(databaseError));
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w("TAG", "Failed to read value.", error.toException());
             }
-        };
-
+        });
 
     }
 }

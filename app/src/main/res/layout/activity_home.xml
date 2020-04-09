@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorPrimaryDark">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-50dp"
+            android:layout_marginBottom="500dp"
+            app:srcCompat="@drawable/maxresdefault"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-6dp"
+            android:layout_marginBottom="38dp"
+            app:srcCompat="@drawable/logo3" />
+
+        <TextView
+            android:id="@+id/introText"
+            android:layout_width="400dp"
+            android:layout_height="100dp"
+            android:fontFamily="monospace"
+            android:gravity="center_horizontal"
+            android:text="@string/HomeIntro"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="140dp"
+            android:textColor="@color/black1"/>
+
+        <TextView
+            android:id="@+id/explainText"
+            android:layout_width="400dp"
+            android:layout_height="80dp"
+            android:fontFamily="monospace"
+            android:gravity="center_horizontal"
+            android:text="@string/ExplainText"
+            android:textAlignment="center"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="250dp"
+            android:textColor="@color/colorTecLight"/>
+
+
+        <Button
+            android:id="@+id/link_register"
+            android:text="About Us"
+            android:textColor="@color/colorTecLight"
+            android:background="@drawable/theme_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/explainText"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="320dp"
+            android:layout_marginBottom="33dp"
+            android:gravity="center"
+            android:textSize="12sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="300dp"
+            >
+            <Button
+                android:layout_width="10dp"
+                android:layout_height="10dp">
+            </Button>
+
+
+            <TextView
+                android:id="@+id/textView53"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="@drawable/rectangle"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="25dp"
+                app:layout_constraintVertical_bias="0.0">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">CBTApp</string>
+
+    <string name="TL">Talent \n Leasing</string>
+    <string name="IR">International \n Recruitment</string>
+
+    <string name="HomeIntro">CBT is a specialist recruitment consultancy with a network of recruitment partners across the Globe.</string>
+    <string name="ExplainText">Every week we share Top Profiles from our pool on LinkedIn. We give a taste of our best profiles from Engineering, ICT, and BPO Tech.</string>
+
+
+
+
 </resources>

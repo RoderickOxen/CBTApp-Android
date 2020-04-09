@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "465993362755",
+    "firebase_url": "https://cbtapp-cf279.firebaseio.com",
+    "project_id": "cbtapp-cf279",
+    "storage_bucket": "cbtapp-cf279.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465993362755:android:21d5f4985127f576f393f6",
+        "android_client_info": {
+          "package_name": "com.cbt.cbtapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465993362755-ia9b7uimfe77umpfgrlacri83e2keafr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3Ec2vEeweVwNzUiRxYbMdmIU4HUAMt7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "465993362755-ia9b7uimfe77umpfgrlacri83e2keafr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

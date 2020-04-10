@@ -25,9 +25,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
     private LayoutInflater inflater;
 
 
-    public MainFragmentAdapter(Context ct, ArrayList<Candidate> candidates, Bitmap img){
+    public MainFragmentAdapter(Context ct, ArrayList<Candidate> candidates){
         candidates_talentLeasing = candidates;
-        images = img;
         inflater = LayoutInflater.from(ct);
     }
     @NonNull
@@ -42,7 +41,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
         holder.candidate_title.setText(candidates_talentLeasing.get(position).getCandidate_title());
         holder.candidate_residence.setText("Residence: "+candidates_talentLeasing.get(position).getCandidate_residence());
         holder.candidate_experience.setText("Years of Experience: "+candidates_talentLeasing.get(position).getCandidate_experience()+" years");
-        holder.imageView.setImageBitmap(images);
+        holder.candidate_flag.setImageBitmap(candidates_talentLeasing.get(position).getCandidate_image());
 
         //holder.imageView.setImageResource(R.drawable.ic_android_black_24dp);
     }
@@ -53,12 +52,12 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        androidx.constraintlayout.widget.ConstraintLayout theLayout;
+
         TextView candidate_title;
         TextView candidate_residence;
         TextView candidate_experience;
-
-        ImageView imageView;
-        androidx.constraintlayout.widget.ConstraintLayout theLayout;
+        ImageView candidate_flag;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -66,7 +65,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
             candidate_title = itemView.findViewById(R.id.textView1);
             candidate_residence =  itemView.findViewById(R.id.distanceTime);
             candidate_experience =  itemView.findViewById(R.id.queueTime);
-            imageView = itemView.findViewById(R.id.imageView1);
+            candidate_flag = itemView.findViewById(R.id.imageView1);
             theLayout = itemView.findViewById(R.id.theLayout);
         }
     }

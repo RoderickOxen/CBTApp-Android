@@ -1,5 +1,7 @@
 package com.cbt.cbtapp.models;
 
+import android.graphics.Bitmap;
+
 public class Candidate {
 
     private String candidate_id;
@@ -11,9 +13,11 @@ public class Candidate {
     private String candidate_residence;
     private String candidate_salary;
     private String candidate_experience;
+    private Bitmap candidate_image;
 
 
-    public Candidate(String candidate_id, String candidate_title,String candidate_academic, String candidate_keyowrds, String candidate_motivation, String candidate_industries, String candidate_residence, String candidate_salary, String candidate_experience) {
+
+    public Candidate(String candidate_id, String candidate_title,String candidate_academic, String candidate_keyowrds, String candidate_motivation, String candidate_industries, String candidate_residence, String candidate_salary, String candidate_experience, Bitmap candidate_image) {
         this.candidate_id = candidate_id;
         this.candidate_title = candidate_title;
         this.candidate_academic = candidate_academic;
@@ -23,6 +27,15 @@ public class Candidate {
         this.candidate_residence = candidate_residence;
         this.candidate_salary = candidate_salary;
         this.candidate_experience = candidate_experience;
+        this.candidate_image = candidate_image;
+    }
+
+    public Bitmap getCandidate_image() {
+        return candidate_image;
+    }
+
+    public void setCandidate_image(Bitmap candidate_image) {
+        this.candidate_image = candidate_image;
     }
 
     public String getCandidate_title() {

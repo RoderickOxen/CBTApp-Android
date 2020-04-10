@@ -19,15 +19,10 @@ public class MainFragment2 extends Fragment {
 
     private View convertView;
     private ArrayList<Candidate> candidates_interRecruitment;
-    private Bitmap image;
-
-    //TO delete
-    private int imagess = R.drawable.ic_android_black_24dp;
 
 
-    public MainFragment2(ArrayList<Candidate> list, Bitmap img){
+    public MainFragment2(ArrayList<Candidate> list){
         candidates_interRecruitment = list;
-        image = img;
     }
 
     @Override
@@ -38,7 +33,7 @@ public class MainFragment2 extends Fragment {
 
             RecyclerView recyclerView = convertView.findViewById(R.id.recyclerView2);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            MainFragmentAdapter adapter = new MainFragmentAdapter(getActivity(), candidates_interRecruitment, image);
+            MainFragmentAdapter adapter = new MainFragmentAdapter(getActivity(), candidates_interRecruitment);
             recyclerView.setAdapter(adapter);
         }
 

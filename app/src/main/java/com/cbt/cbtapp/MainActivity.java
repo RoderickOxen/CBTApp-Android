@@ -81,7 +81,9 @@ public class MainActivity extends AppCompatActivity {
                             ds.child("Relevant Industries").getValue().toString(),
                             ds.child("Residence").getValue().toString(),
                             ds.child("Salary Expectation").getValue().toString(),
-                            ds.child("YearsOfExperience").getValue().toString());
+                            ds.child("YearsOfExperience").getValue().toString(),
+                            //set country flag a null will be setted on STEP3
+                            null);
 
                     candidates_talentLeasing.add(candidate);
 
@@ -123,7 +125,9 @@ public class MainActivity extends AppCompatActivity {
                             ds.child("Relevant Industries").getValue().toString(),
                             ds.child("Residence").getValue().toString(),
                             ds.child("Salary Expectation").getValue().toString(),
-                            ds.child("YearsOfExperience").getValue().toString());
+                            ds.child("YearsOfExperience").getValue().toString(),
+                            //set country flag a null will be setted on STEP3
+                            null);
 
                     candidates_interRecrut.add(candidate);
 
@@ -174,6 +178,14 @@ public class MainActivity extends AppCompatActivity {
                         if(image!=null){
                             Log.w("storage","Not null");
 
+                            //set candidate flags here -- Needs algorithm -- given nationality put flag
+                            for (Candidate candidate: candidates_interRecrut){
+                                candidate.setCandidate_image(image);
+                            }
+                            for (Candidate candidate: candidates_talentLeasing){
+                                candidate.setCandidate_image(image);
+                            }
+
                             //Finally we have all the data and we can call the fragments
                             setFragmentArrayList();
                             setFragmentTitles();
@@ -191,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
     //Final Step
     private void setFragmentArrayList(){
         fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(new MainFragment1(candidates_talentLeasing, image));
-        fragmentArrayList.add(new MainFragment2(candidates_interRecrut, image));
+        fragmentArrayList.add(new MainFragment1(candidates_talentLeasing));
+        fragmentArrayList.add(new MainFragment2(candidates_interRecrut));
     }
 
     //Final Step

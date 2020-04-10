@@ -13,6 +13,7 @@
 
 
         <activity android:name=".MainActivity" />
+        <activity android:name=".ui.CandidateProfileActivity" />
 
 
         <activity android:name=".ui.HomeActivity" >

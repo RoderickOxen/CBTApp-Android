@@ -2,6 +2,7 @@ package com.cbt.cbtapp.ui;
 
 import java.util.ArrayList;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +21,12 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
 
     //TO DOO
     private LayoutInflater inflater;
+    Context context;
+
 
 
     public MainFragmentAdapter(Context ct, ArrayList<Candidate> c){
+        context = ct;
         candidates = c;
         inflater = LayoutInflater.from(ct);
     }
@@ -39,6 +43,18 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
         holder.candidate_residence.setText("Residence: "+candidates.get(position).getCandidate_residence());
         holder.candidate_experience.setText("Years of Experience: "+candidates.get(position).getCandidate_experience()+" years");
         holder.candidate_flag.setImageBitmap(candidates.get(position).getCandidate_image());
+
+        holder.theLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, CandidateProfileActivity.class);
+                //aqui passar as coisas para receber do outro lado
+                context.startActivity(intent);
+            }
+        });
+
+
+
     }
 
     @Override

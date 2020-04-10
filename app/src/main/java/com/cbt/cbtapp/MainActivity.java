@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.cbt.cbtapp.models.Candidate;
 import com.cbt.cbtapp.ui.FragmentsAdapter;
 import com.cbt.cbtapp.ui.HomeActivity;
 import com.cbt.cbtapp.ui.MainFragment1;
@@ -27,21 +28,18 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<ArrayList> list_of_candidates_talentLeasing = new ArrayList<ArrayList>();
-    private ArrayList<ArrayList> list_of_candidates_internationalRecruitment = new ArrayList<ArrayList>();
-    private ArrayList<String> candidate = new ArrayList<String>();
-
-    private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
-    private DatabaseReference talentLeasingRef = rootRef.child("Tabela-1").child("TalentLeasing");
-    private DatabaseReference internationalRecRef = rootRef.child("Tabela-2").child("InternationalRecruitment");
-
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
     private FragmentsAdapter viewPagerAdapter;
     private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> fragmentTitles;
+    private ArrayList<Candidate> candidates_talentLeasing = new ArrayList<Candidate>();
+    private ArrayList<Candidate> candidates_interRecrut = new ArrayList<Candidate>();
 
+    //Firebase Access
+    private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference talentLeasingRef = rootRef.child("Tabela-1").child("TalentLeasing");
+    private DatabaseReference talentInterRecrutRef = rootRef.child("Tabela-2").child("InternationalRecruitment");
 
 
     @Override
@@ -49,15 +47,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //isto vai buscar os talentLeasing e quando acabar vai buscar os internationalRec
-        //getCandidatesTalentLeasing(talentLeasingRef);
+        //Get data from firebase
+        getCandidatesTalentLeasing(talentLeasingRef);
 
         tabLayout = findViewById(R.id.BottomTab);
         viewPager = findViewById(R.id.ViewPager);
+    }
 
-        setFragmentArrayList();
-        setFragmentTitles();
-        viewPagerTabLayout();
+    private void viewPagerTabLayout(){
+        viewPagerAdapter = new FragmentsAdapter(getSupportFragmentManager(), this, fragmentArrayList, fragmentTitles);
+        viewPager.setAdapter(viewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_airplanemode_active_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_flag_black_24dp);
+
+    }
+
+    private void setFragmentArrayList(){
+        fragmentArrayList = new ArrayList<>();
+        fragmentArrayList.add(new MainFragment1(candidates_talentLeasing));
+        fragmentArrayList.add(new MainFragment2());
+    }
+
+    private void setFragmentTitles(){
+        fragmentTitles = new ArrayList<>();
+        fragmentTitles.add("TL");
+        fragmentTitles.add("IR");
 
     }
 
@@ -67,20 +83,20 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
 
-                    candidate.clear();
+                    Candidate candidate = new Candidate(
+                            ds.getKey(),
+                            ds.child("Title").getValue().toString(),
+                            ds.child("AcademicBackground").getValue().toString(),
+                            ds.child("Keywords").getValue().toString(),
+                            ds.child("Motivation to work abroad").getValue().toString(),
+                            ds.child("Relevant Industries").getValue().toString(),
+                            ds.child("Residence").getValue().toString(),
+                            ds.child("Salary Expectation").getValue().toString(),
+                            ds.child("YearsOfExperience").getValue().toString());
 
-                    candidate.add(ds.getKey());
-                    candidate.add(ds.child("AcademicBackground").getValue().toString());
-                    candidate.add(ds.child("Keywords").getValue().toString());
-                    candidate.add(ds.child("Motivation to work abroad").getValue().toString());
-                    candidate.add(ds.child("Relevant Industries").getValue().toString());
-                    candidate.add(ds.child("Residence").getValue().toString());
-                    candidate.add(ds.child("Salary Expectation").getValue().toString());
-                    candidate.add(ds.child("YearsOfExperience").getValue().toString());
+                    candidates_talentLeasing.add(candidate);
 
-                    list_of_candidates_talentLeasing.add(candidate);
-
-                    //Logs
+                    //Logs for debugging
                     Log.w("ID", String.valueOf(ds.getKey()));
                     Log.w("AcademicBackground", String.valueOf(ds.child("AcademicBackground").getValue()));
                     Log.w("Keywords", String.valueOf(ds.child("Keywords").getValue()));
@@ -91,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("YearsOfExperience", String.valueOf(ds.child("YearsOfExperience").getValue()));
 
                 }
-                getCandidatesInternationalRecruitment(internationalRecRef);
+                //After getting the data you call the next part
+                getCandidatesInternationalRecruitment(talentInterRecrutRef);
             }
 
             @Override
@@ -101,26 +118,26 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void getCandidatesInternationalRecruitment(DatabaseReference internationalRec) {
-        internationalRec.addValueEventListener(new ValueEventListener() {
+    private void getCandidatesInternationalRecruitment(DatabaseReference talentLeasingRef) {
+        talentLeasingRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
 
-                    candidate.clear();
+                    Candidate candidate = new Candidate(
+                            ds.getKey(),
+                            ds.child("Title").getValue().toString(),
+                            ds.child("AcademicBackground").getValue().toString(),
+                            ds.child("Keywords").getValue().toString(),
+                            ds.child("Motivation to work abroad").getValue().toString(),
+                            ds.child("Relevant Industries").getValue().toString(),
+                            ds.child("Residence").getValue().toString(),
+                            ds.child("Salary Expectation").getValue().toString(),
+                            ds.child("YearsOfExperience").getValue().toString());
 
-                    candidate.add(ds.getKey());
-                    candidate.add(ds.child("AcademicBackground").getValue().toString());
-                    candidate.add(ds.child("Keywords").getValue().toString());
-                    candidate.add(ds.child("Motivation to work abroad").getValue().toString());
-                    candidate.add(ds.child("Relevant Industries").getValue().toString());
-                    candidate.add(ds.child("Residence").getValue().toString());
-                    candidate.add(ds.child("Salary Expectation").getValue().toString());
-                    candidate.add(ds.child("YearsOfExperience").getValue().toString());
+                    candidates_interRecrut.add(candidate);
 
-                    list_of_candidates_internationalRecruitment.add(candidate);
-
-                    //Logs
+                    //Logs for debugging
                     Log.w("ID", String.valueOf(ds.getKey()));
                     Log.w("AcademicBackground", String.valueOf(ds.child("AcademicBackground").getValue()));
                     Log.w("Keywords", String.valueOf(ds.child("Keywords").getValue()));
@@ -131,8 +148,13 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("YearsOfExperience", String.valueOf(ds.child("YearsOfExperience").getValue()));
 
                 }
-                Log.w("size", String.valueOf(list_of_candidates_talentLeasing.size()));
-                Log.w("sizeB", String.valueOf(list_of_candidates_internationalRecruitment.size()));
+                //After getting the data you call the next part
+                setFragmentArrayList();
+                setFragmentTitles();
+                viewPagerTabLayout();
+
+                Log.w("size-TL", String.valueOf(candidates_talentLeasing.size()));
+                Log.w("size-IR", String.valueOf(candidates_interRecrut.size()));
 
             }
 
@@ -141,31 +163,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.w("TAG", "Failed to read value.", error.toException());
             }
         });
-    }
-
-    private void viewPagerTabLayout(){
-
-        viewPagerAdapter = new FragmentsAdapter(getSupportFragmentManager(), this, fragmentArrayList, fragmentTitles);
-
-        viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-
-        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-            tabLayout.getTabAt(i).setIcon(R.drawable.ic_android_black_24dp);
-        }
-    }
-
-
-    private void setFragmentArrayList(){
-        fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(new MainFragment1());
-        fragmentArrayList.add(new MainFragment2());
-    }
-
-    private void setFragmentTitles(){
-        fragmentTitles = new ArrayList<>();
-        fragmentTitles.add("TL");
-        fragmentTitles.add("IR");
     }
 
 

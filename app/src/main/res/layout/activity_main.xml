@@ -5,11 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:background="@drawable/gradiant_bg"
+    tools:context=".MainActivity"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/ViewPager"
@@ -24,7 +27,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true" />
+            android:layout_alignParentRight="true"
+            />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/BottomTab"
@@ -42,7 +46,8 @@
             app:tabMode="fixed"
             tools:layout_editor_absoluteX="16dp"
             android:layout_alignParentRight="true"
-            android:layout_alignParentLeft="true" />
+            android:layout_alignParentLeft="true"
+            />
 
     </RelativeLayout>
 

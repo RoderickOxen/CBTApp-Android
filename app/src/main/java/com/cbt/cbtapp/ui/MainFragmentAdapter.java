@@ -44,7 +44,29 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
         holder.candidate_title.setText(candidates.get(position).getCandidate_title());
         holder.candidate_residence.setText("Residence: "+candidates.get(position).getCandidate_residence());
         holder.candidate_experience.setText("Years of Experience: "+candidates.get(position).getCandidate_experience()+" years");
-        holder.candidate_flag.setImageBitmap(candidates.get(position).getCandidate_image());
+
+        if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("portuguese")){
+            holder.candidate_flag.setImageResource(R.drawable.portuguese);
+
+        }
+        else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("spannish")){
+            holder.candidate_flag.setImageResource(R.drawable.spanish);
+        }
+        else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("british")){
+            holder.candidate_flag.setImageResource(R.drawable.uk);
+        }
+        else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("brazilian")){
+            holder.candidate_flag.setImageResource(R.drawable.brazil);
+        }
+        else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("german")){
+            holder.candidate_flag.setImageResource(R.drawable.germany);
+        }
+        else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("italian")){
+            holder.candidate_flag.setImageResource(R.drawable.italian);
+        }
+        else{
+            holder.candidate_flag.setImageBitmap(candidates.get(position).getCandidate_image());
+        }
 
         holder.theLayout.setOnClickListener(new View.OnClickListener() {
             @Override

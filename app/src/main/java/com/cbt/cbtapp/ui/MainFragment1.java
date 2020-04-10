@@ -1,11 +1,11 @@
 package com.cbt.cbtapp.ui;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,15 +17,18 @@ import java.util.ArrayList;
 
 public class MainFragment1 extends Fragment {
 
-    private ArrayList<Candidate> candidates_talentLeasing;
-
-    //TO DO
     private View convertView;
-    private int image = R.drawable.ic_android_black_24dp;
+    private ArrayList<Candidate> candidates_talentLeasing;
+    private Bitmap image;
 
 
-    public MainFragment1(ArrayList<Candidate> list) {
+    //TO delete
+    private int imagess = R.drawable.ic_android_black_24dp;
+
+
+    public MainFragment1(ArrayList<Candidate> list, Bitmap img) {
         candidates_talentLeasing = list;
+        image = img;
     }
 
 
@@ -35,7 +38,7 @@ public class MainFragment1 extends Fragment {
             convertView = inflater.inflate(R.layout.activity_main_fragment_1, container, false);
             RecyclerView recyclerView = convertView.findViewById(R.id.recyclerView);
             recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-            MainFragment1Adapter adapter = new MainFragment1Adapter(getActivity(), candidates_talentLeasing, image);
+            MainFragmentAdapter adapter = new MainFragmentAdapter(getActivity(), candidates_talentLeasing, image);
             recyclerView.setAdapter(adapter);
         }
         return convertView;

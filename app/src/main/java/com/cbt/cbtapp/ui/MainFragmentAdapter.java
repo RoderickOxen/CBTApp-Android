@@ -3,6 +3,7 @@ package com.cbt.cbtapp.ui;
 
 import java.util.ArrayList;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,16 +16,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class MainFragment1Adapter extends RecyclerView.Adapter<MainFragment1Adapter.ViewHolder> {
+public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapter.ViewHolder> {
 
     ArrayList<Candidate> candidates_talentLeasing = new ArrayList<Candidate>();
 
     //TO DOO
-    int images;
+    Bitmap images;
     private LayoutInflater inflater;
 
 
-    public MainFragment1Adapter(Context ct, ArrayList<Candidate> candidates, int img){
+    public MainFragmentAdapter(Context ct, ArrayList<Candidate> candidates, Bitmap img){
         candidates_talentLeasing = candidates;
         images = img;
         inflater = LayoutInflater.from(ct);
@@ -37,12 +38,13 @@ public class MainFragment1Adapter extends RecyclerView.Adapter<MainFragment1Adap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainFragment1Adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainFragmentAdapter.ViewHolder holder, int position) {
         holder.candidate_title.setText(candidates_talentLeasing.get(position).getCandidate_title());
         holder.candidate_residence.setText("Residence: "+candidates_talentLeasing.get(position).getCandidate_residence());
         holder.candidate_experience.setText("Years of Experience: "+candidates_talentLeasing.get(position).getCandidate_experience()+" years");
+        holder.imageView.setImageBitmap(images);
 
-        holder.imageView.setImageResource(R.drawable.ic_android_black_24dp);
+        //holder.imageView.setImageResource(R.drawable.ic_android_black_24dp);
     }
 
     @Override

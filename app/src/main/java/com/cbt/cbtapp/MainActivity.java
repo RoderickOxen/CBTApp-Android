@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,12 +19,16 @@ import com.cbt.cbtapp.ui.FragmentsAdapter;
 import com.cbt.cbtapp.ui.HomeActivity;
 import com.cbt.cbtapp.ui.MainFragment1;
 import com.cbt.cbtapp.ui.MainFragment2;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -36,10 +42,15 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Candidate> candidates_talentLeasing = new ArrayList<Candidate>();
     private ArrayList<Candidate> candidates_interRecrut = new ArrayList<Candidate>();
 
-    //Firebase Access
+    //Firebase Realtime Access
     private DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference();
     private DatabaseReference talentLeasingRef = rootRef.child("Tabela-1").child("TalentLeasing");
     private DatabaseReference talentInterRecrutRef = rootRef.child("Tabela-2").child("InternationalRecruitment");
+
+    //Firebase Storage Access
+    private FirebaseStorage storage;
+    Bitmap image = null;
+
 
 
     @Override
@@ -54,29 +65,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.ViewPager);
     }
 
-    private void viewPagerTabLayout(){
-        viewPagerAdapter = new FragmentsAdapter(getSupportFragmentManager(), this, fragmentArrayList, fragmentTitles);
-        viewPager.setAdapter(viewPagerAdapter);
-        tabLayout.setupWithViewPager(viewPager);
-
-        tabLayout.getTabAt(0).setIcon(R.drawable.ic_airplanemode_active_black_24dp);
-        tabLayout.getTabAt(1).setIcon(R.drawable.ic_flag_black_24dp);
-
-    }
-
-    private void setFragmentArrayList(){
-        fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(new MainFragment1(candidates_talentLeasing));
-        fragmentArrayList.add(new MainFragment2());
-    }
-
-    private void setFragmentTitles(){
-        fragmentTitles = new ArrayList<>();
-        fragmentTitles.add("TL");
-        fragmentTitles.add("IR");
-
-    }
-
+    //STEP 1
     private void getCandidatesTalentLeasing(DatabaseReference talentLeasingRef) {
         talentLeasingRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -107,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("YearsOfExperience", String.valueOf(ds.child("YearsOfExperience").getValue()));
 
                 }
-                //After getting the data you call the next part
+                //After getting the TL candidates we get de IR candidates
                 getCandidatesInternationalRecruitment(talentInterRecrutRef);
             }
 
@@ -118,6 +107,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //STEP 2
     private void getCandidatesInternationalRecruitment(DatabaseReference talentLeasingRef) {
         talentLeasingRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -148,10 +138,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("YearsOfExperience", String.valueOf(ds.child("YearsOfExperience").getValue()));
 
                 }
-                //After getting the data you call the next part
-                setFragmentArrayList();
-                setFragmentTitles();
-                viewPagerTabLayout();
+                //After getting the IR candidates we get de Flags candidates
+                getCountryFlags();
 
                 Log.w("size-TL", String.valueOf(candidates_talentLeasing.size()));
                 Log.w("size-IR", String.valueOf(candidates_interRecrut.size()));
@@ -164,6 +152,66 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //STEP 3
+    public void getCountryFlags(){
+
+        //get the Firebase  storage reference
+        storage = FirebaseStorage.getInstance();
+
+        StorageReference imgReference = storage.getReference()
+                .child("flagsImages")  //image folder
+                .child("united-kingdom.png");
+
+        //download files as bytes
+        final long ONE_MEGABYTE = 1024 * 1024;
+        imgReference.getBytes(ONE_MEGABYTE)
+                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
+                    @Override
+                    public void onSuccess(byte[] bytes) {
+                        image = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+
+                        if(image!=null){
+                            Log.w("storage","Not null");
+
+                            //Finally we have all the data and we can call the fragments
+                            setFragmentArrayList();
+                            setFragmentTitles();
+                            viewPagerTabLayout();
+                        }
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.w("storage",e);
+            }
+        });
+    }
+
+    //Final Step
+    private void setFragmentArrayList(){
+        fragmentArrayList = new ArrayList<>();
+        fragmentArrayList.add(new MainFragment1(candidates_talentLeasing, image));
+        fragmentArrayList.add(new MainFragment2(candidates_interRecrut, image));
+    }
+
+    //Final Step
+    private void setFragmentTitles(){
+        fragmentTitles = new ArrayList<>();
+        fragmentTitles.add("TL");
+        fragmentTitles.add("IR");
+    }
+
+    //Final Step
+    private void viewPagerTabLayout(){
+        viewPagerAdapter = new FragmentsAdapter(getSupportFragmentManager(), this, fragmentArrayList, fragmentTitles);
+        viewPager.setAdapter(viewPagerAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.getTabAt(0).setIcon(R.drawable.ic_airplanemode_active_black_24dp);
+        tabLayout.getTabAt(1).setIcon(R.drawable.ic_flag_black_24dp);
+    }
+
 
 
 }

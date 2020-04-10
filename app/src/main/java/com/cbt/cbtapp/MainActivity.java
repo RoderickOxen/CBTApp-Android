@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.cbt.cbtapp.models.Candidate;
 import com.cbt.cbtapp.ui.FragmentsAdapter;
@@ -29,8 +30,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Firebase Storage Access
     private FirebaseStorage storage;
+
+    private ArrayList<Bitmap> flags = new ArrayList<Bitmap>();;
 
 
     //TO DOO
@@ -75,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot ds: dataSnapshot.getChildren()){
-
                     Candidate candidate = new Candidate(
                             ds.getKey(),
                             ds.child("Title").getValue().toString(),
@@ -85,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
                             ds.child("Relevant Industries").getValue().toString(),
                             ds.child("Residence").getValue().toString(),
                             ds.child("Salary Expectation").getValue().toString(),
-                            ds.child("Nationality").getValue().toString(),
                             ds.child("YearsOfExperience").getValue().toString(),
+                            ds.child("Nationality").getValue().toString(),
                             //set country flag a null will be setted on STEP3
                             null);
 
@@ -105,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 //After getting the TL candidates we get de IR candidates
                 getCandidatesInternationalRecruitment(talentInterRecrutRef);
+
+
             }
 
             @Override
@@ -168,6 +174,9 @@ public class MainActivity extends AppCompatActivity {
     public void getCountryFlags(){
 
         //get the Firebase  storage reference
+        final long ONE_MEGABYTE = 1024 * 1024;
+
+        //get the Firebase  storage reference
         storage = FirebaseStorage.getInstance();
 
         StorageReference imgReference = storage.getReference()
@@ -175,9 +184,7 @@ public class MainActivity extends AppCompatActivity {
                 .child("united-kingdom.png");
 
         //download files as bytes
-        final long ONE_MEGABYTE = 1024 * 1024;
-        imgReference.getBytes(ONE_MEGABYTE)
-                .addOnSuccessListener(new OnSuccessListener<byte[]>() {
+        imgReference.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                     @Override
                     public void onSuccess(byte[] bytes) {
                         image = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
@@ -207,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     //Final Step
     private void setFragmentArrayList(){
         fragmentArrayList = new ArrayList<>();
@@ -229,8 +237,11 @@ public class MainActivity extends AppCompatActivity {
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_airplanemode_active_black_24dp);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_flag_black_24dp);
+
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            if (tab != null) tab.setCustomView(R.layout.icon);
+        }
     }
-
-
 
 }

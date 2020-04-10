@@ -9,6 +9,11 @@
         android:layout_height="match_parent"
         android:background="@color/white">
 
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar" />
+
+
         <ImageView
             android:id="@+id/imageView9"
             android:layout_width="30dp"
@@ -17,8 +22,8 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="116dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:srcCompat="@drawable/abroad" />
+            app:layout_constraintTop_toBottomOf="@+id/industries"
+            app:srcCompat="@drawable/ic_airplanemode_active_black_24dp" />
 
         <ImageView
             android:id="@+id/imageView8"
@@ -28,41 +33,56 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView20"
-            app:srcCompat="@drawable/salary" />
+            app:layout_constraintTop_toBottomOf="@+id/industries"
+            app:srcCompat="@drawable/ic_monetization_on_black_24dp" />
 
         <TextView
             android:id="@+id/textView19"
             android:layout_width="172dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Relevant Industries"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            app:layout_constraintTop_toBottomOf="@+id/academic" />
 
         <TextView
             android:id="@+id/textView21"
             android:layout_width="172dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="24dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Salary Expectation"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintTop_toBottomOf="@+id/industries" />
 
         <TextView
             android:id="@+id/textView23"
             android:layout_width="233dp"
             android:layout_height="28dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="116dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Motivation to work abroad"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintTop_toBottomOf="@+id/industries" />
 
         <ImageView
             android:id="@+id/imageView7"
@@ -72,54 +92,59 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView14"
-            app:srcCompat="@drawable/academic" />
+            app:layout_constraintTop_toBottomOf="@+id/experience"
+            app:srcCompat="@drawable/ic_school_black_24dp" />
 
         <TextView
-            android:id="@+id/textView18"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/academic"
+            android:layout_width="298dp"
+            android:layout_height="63dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/academic"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
         <TextView
-            android:id="@+id/textView20"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/industries"
+            android:layout_width="293dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/industries"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
         <TextView
-            android:id="@+id/textView22"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="4dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/salary"
+            android:layout_width="296dp"
+            android:layout_height="53dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/salary"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
         <TextView
-            android:id="@+id/textView24"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="96dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/motivation"
+            android:layout_width="275dp"
+            android:layout_height="55dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginTop="92dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/motivation"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
@@ -127,12 +152,17 @@
             android:id="@+id/textView17"
             android:layout_width="172dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Academic Background"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
-            app:layout_constraintTop_toBottomOf="@+id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/experience" />
 
         <ImageView
             android:id="@+id/imageView6"
@@ -142,18 +172,19 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView18"
-            app:srcCompat="@drawable/industries" />
+            app:layout_constraintTop_toBottomOf="@+id/academic"
+            app:srcCompat="@drawable/ic_business_center_black_24dp" />
 
         <TextView
-            android:id="@+id/textView14"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/experience"
+            android:layout_width="302dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/experience"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
@@ -161,29 +192,35 @@
             android:id="@+id/textView13"
             android:layout_width="172dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="20dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Years of experience"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintTop_toBottomOf="@+id/keywords" />
 
         <TextView
-            android:id="@+id/textView12"
-            android:layout_width="277dp"
-            android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:id="@+id/keywords"
+            android:layout_width="304dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/keywords"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
         <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="123dp"
-            android:layout_height="92dp"
+            android:id="@+id/res_image"
+            android:layout_width="146dp"
+            android:layout_height="102dp"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="76dp"
@@ -193,46 +230,47 @@
 
         <TextView
             android:id="@+id/textView5"
-            android:layout_width="16dp"
-            android:layout_height="907dp"
+            android:layout_width="18dp"
+            android:layout_height="1048dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView6"
-            android:layout_width="165dp"
-            android:layout_height="18dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="76dp"
-            android:text="Senior Software Engineer"
-            android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/title"
+            android:layout_width="185dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="92dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/title"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/res_image"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Software Engineering IT" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="12dp"
-            android:text="ID 11523"
-            android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/id"
+            android:textColor="@color/colorTecDark"
+            app:layout_constraintStart_toEndOf="@+id/res_image"
+            app:layout_constraintTop_toBottomOf="@+id/title"
+            tools:text="ID 12345" />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/residence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
-            android:layout_marginTop="10dp"
-            android:text="TextView"
-            android:textColor="#000000"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/residence"
+            android:textColor="@color/colorTecDark"
+            app:layout_constraintStart_toEndOf="@+id/res_image"
+            app:layout_constraintTop_toBottomOf="@+id/id"
+            tools:text="Portugal" />
 
         <ImageView
             android:id="@+id/imageView2"
@@ -242,47 +280,41 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="33dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:srcCompat="@drawable/residence" />
+            app:layout_constraintTop_toBottomOf="@+id/res_image"
+            app:srcCompat="@drawable/ic_home_black_24dp" />
+
+        <!-- Header aligned to top -->
+
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="91dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="32dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Residence"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
-            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+            app:layout_constraintTop_toBottomOf="@+id/res_image" />
 
         <TextView
-            android:id="@+id/textView10"
+            android:id="@+id/residence2"
             android:layout_width="277dp"
             android:layout_height="34dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:text="mpasincoalcnaoi"
-            android:textColor="#090909"
+            android:layout_marginStart="48dp"
+            android:layout_marginLeft="48dp"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/residence"
+            android:textColor="@color/colorTecDark"
+            android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-        <!-- Header aligned to top -->
-
-        <RelativeLayout
-            android:id="@+id/header"
-            android:layout_width="413dp"
-            android:layout_height="67dp"
-            android:layout_alignParentTop="true"
-            android:background="#35434e"
-            android:gravity="center" >
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="151dp"
-                android:layout_height="62dp"
-                app:srcCompat="@drawable/logo3" />
-        </RelativeLayout>
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            tools:text="Sapin" />
 
         <ImageView
             android:id="@+id/imageView3"
@@ -292,19 +324,24 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10"
-            app:srcCompat="@drawable/keywords" />
+            app:layout_constraintTop_toBottomOf="@+id/residence2"
+            app:srcCompat="@drawable/ic_search_black_24dp" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="92dp"
             android:layout_height="30dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="24dp"
-            android:gravity="center_horizontal|center_vertical"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_horizontal|center_vertical|left"
             android:text="Keywords"
-            android:textColor="#000000"
+            android:textColor="@color/colorTecDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imageView3"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+            app:layout_constraintTop_toBottomOf="@+id/residence2" />
 
         <ImageView
             android:id="@+id/imageView4"
@@ -314,20 +351,26 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView12"
-            app:srcCompat="@drawable/experience" />
+            app:layout_constraintTop_toBottomOf="@+id/keywords"
+            app:srcCompat="@drawable/ic_work_black_24dp" />
 
         <Button
             android:id="@+id/send_request"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:background="#3F51B5"
-            android:text="Send Request"
+            android:layout_width="128dp"
+            android:layout_height="74dp"
+            android:background="@color/blueTec3"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Send Rquest"
+            android:textAllCaps="false"
+            android:textColor="@color/colorTecLight"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView24" />
+            app:layout_constraintTop_toBottomOf="@+id/motivation"
+            app:layout_constraintVertical_bias="0.684" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.cbt.cbtapp.R;
 import com.cbt.cbtapp.models.Candidate;
+import com.google.gson.Gson;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -38,7 +40,7 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MainFragmentAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MainFragmentAdapter.ViewHolder holder, final int position) {
         holder.candidate_title.setText(candidates.get(position).getCandidate_title());
         holder.candidate_residence.setText("Residence: "+candidates.get(position).getCandidate_residence());
         holder.candidate_experience.setText("Years of Experience: "+candidates.get(position).getCandidate_experience()+" years");
@@ -48,7 +50,8 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, CandidateProfileActivity.class);
-                //aqui passar as coisas para receber do outro lado
+                Candidate candidate = candidates.get(position);
+                intent.putExtra("candidate", new Gson().toJson(candidate));
                 context.startActivity(intent);
             }
         });

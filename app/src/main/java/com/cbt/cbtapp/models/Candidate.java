@@ -2,7 +2,7 @@ package com.cbt.cbtapp.models;
 
 import android.graphics.Bitmap;
 
-public class Candidate {
+public class Candidate{
 
     private String candidate_id;
     private String candidate_title;

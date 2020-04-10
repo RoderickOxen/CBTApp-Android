@@ -16,6 +16,15 @@
     <string name="AccessPoolText"><b>Want to have access</b> to the full list of candidates?\nTo Request access to our <b>Talent Pool</b> you just need to send us your information.\n</string>
 
 
+    <string name="title"></string>
+    <string name="id"></string>
+    <string name="residence"></string>
+    <string name="keywords"></string>
+    <string name="experience"></string>
+    <string name="academic"></string>
+    <string name="industries"></string>
+    <string name="salary"></string>
+    <string name="motivation"></string>
 
 
 </resources>

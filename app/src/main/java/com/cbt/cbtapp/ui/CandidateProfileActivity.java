@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.cbt.cbtapp.models.Candidate;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.cbt.cbtapp.R;
+import com.google.gson.Gson;
 
 public class CandidateProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -22,6 +24,45 @@ public class CandidateProfileActivity extends AppCompatActivity implements View.
         Button send_request = (Button) findViewById(R.id.send_request);
 
         send_request.setOnClickListener(CandidateProfileActivity.this);
+
+        String jsonMyObject;
+        Bundle bundle = getIntent().getExtras();
+
+        jsonMyObject = bundle.getString("candidate");
+        Candidate candidate = new Gson().fromJson(jsonMyObject, Candidate.class);
+
+        TextView textView = findViewById(R.id.title);
+        textView.setText(candidate.getCandidate_title());
+
+        textView = findViewById(R.id.id);
+        textView.setText("ID: "+candidate.getCandidate_id());
+
+        textView = findViewById(R.id.residence);
+        textView.setText("Nationality: "+candidate.getCandidate_nationality());
+
+        textView = findViewById(R.id.residence2);
+        textView.setText(candidate.getCandidate_residence());
+
+        textView = findViewById(R.id.experience);
+        textView.setText(candidate.getCandidate_experience()+" years");
+
+        textView = findViewById(R.id.academic);
+        textView.setText(candidate.getCandidate_academic());
+
+        textView = findViewById(R.id.industries);
+        textView.setText(candidate.getCandidate_industries());
+
+        textView = findViewById(R.id.salary);
+        textView.setText(candidate.getCandidate_salary());
+
+        textView = findViewById(R.id.motivation);
+        textView.setText(candidate.getCandidate_motivation());
+
+        ImageView image = findViewById(R.id.res_image);
+        image.setImageBitmap(candidate.getCandidate_image());
+
+        textView = findViewById(R.id.keywords);
+        textView.setText(candidate.getCandidate_keyowrds());
 
     }
 
@@ -40,4 +81,6 @@ public class CandidateProfileActivity extends AppCompatActivity implements View.
             }
         }
     }
+
 }
+

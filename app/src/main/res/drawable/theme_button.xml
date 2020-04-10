@@ -5,9 +5,9 @@
         android:state_pressed="true">
         <shape>
             <solid
-                android:color="@color/blueTec2"/>
+                android:color="@color/colorTecLight"/>
             <stroke
-                android:color="@color/blueTec1"
+                android:color="@color/colorTecLight"
                 android:width="1dp"/>
         </shape>
     </item>
@@ -16,9 +16,9 @@
     <item>
         <shape>
             <solid
-                android:color="@color/blueTec3"/>
+                android:color="@color/colorTecLight"/>
             <stroke
-                android:color="@color/colorPrimaryDark"
+                android:color="@color/colorTecDark"
                 android:width="1dp"/>
         </shape>
     </item>

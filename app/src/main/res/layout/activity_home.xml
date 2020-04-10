@@ -1,108 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimaryDark">
+    android:background="@drawable/gradiant_bg">
 
 
-    <RelativeLayout
+    <ImageView
+        android:id="@+id/imageDetail"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/maxresdefault"
+        android:scaleType="centerCrop"
+        />
 
-        <ImageView
-            android:id="@+id/backgroundImage"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="-50dp"
-            android:layout_marginBottom="500dp"
-            app:srcCompat="@drawable/maxresdefault"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"/>
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-6dp"
-            android:layout_marginBottom="38dp"
-            app:srcCompat="@drawable/logo3" />
-
-        <TextView
-            android:id="@+id/introText"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:fontFamily="monospace"
-            android:gravity="center_horizontal"
-            android:text="@string/HomeIntro"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="140dp"
-            android:textColor="@color/black1"/>
-
-        <TextView
-            android:id="@+id/explainText"
-            android:layout_width="400dp"
-            android:layout_height="80dp"
-            android:fontFamily="monospace"
-            android:gravity="center_horizontal"
-            android:text="@string/ExplainText"
-            android:textAlignment="center"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="250dp"
-            android:textColor="@color/colorTecLight"/>
+    <ImageView
+        android:id="@+id/imageDetail1"
+        android:layout_width="225dp"
+        android:layout_height="300dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo3"
+        />
 
 
-        <Button
-            android:id="@+id/link_register"
-            android:text="About Us"
-            android:textColor="@color/colorTecLight"
-            android:background="@drawable/theme_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/explainText"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="320dp"
-            android:layout_marginBottom="33dp"
-            android:gravity="center"
-            android:textSize="12sp" />
+    <Button
+        android:id="@+id/introText"
+        android:layout_width="333dp"
+        android:layout_height="100dp"
+        android:textAllCaps="false"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/gradiant_bg_2"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="top"
+        android:text="@string/HomeIntro"
+        android:textColor="@color/black1"
+        android:textSize="14sp"
+        android:padding="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.397" />
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:layout_marginTop="300dp"
-            >
-            <Button
-                android:layout_width="10dp"
-                android:layout_height="10dp">
-            </Button>
+    <TextView
+        android:id="@+id/introText2"
+        android:layout_width="334dp"
+        android:layout_height="273dp"
+        android:textAllCaps="false"
+        android:background="@drawable/gradiant_bg_2"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="top"
+        android:padding="15dp"
+        android:text="@string/ExplainText"
+        android:textColor="@color/black1"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.842" />
 
-
-            <TextView
-                android:id="@+id/textView53"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="@drawable/rectangle"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="25dp"
-                app:layout_constraintVertical_bias="0.0">
-
-            </TextView>
-
-        </RelativeLayout>
-
-    </RelativeLayout>
+    <Button
+        android:id="@+id/enterApp"
+        android:layout_width="128dp"
+        android:layout_height="74dp"
+        android:background="@color/blueTec3"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Enter App"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

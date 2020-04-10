@@ -4,8 +4,13 @@
     <string name="TL">Talent \n Leasing</string>
     <string name="IR">International \n Recruitment</string>
 
-    <string name="HomeIntro">CBT is a specialist recruitment consultancy with a network of recruitment partners across the Globe.</string>
-    <string name="ExplainText">Every week we share Top Profiles from our pool on LinkedIn. We give a taste of our best profiles from Engineering, ICT, and BPO Tech.</string>
+    <string name="HomeIntro"><b>CBT</b> is a specialist recruitment consultancy with a network of recruitment partners across the Globe.
+        \n\n <u>Click here to find out more.</u></string>
+    <string name="ExplainText">Every week we share Top Profiles from our <b>Talent Pool</b>.
+        \n\nWe give a taste of our best profiles from <b> Engineering</b>, <b>ICT</b>, and <b>BPO Tech</b>.
+        \n\nThis app is a quick way to find all the best candidates from 2 categories:
+        \n<b>—Talent Leasing:</b> Permanent contracts
+        \n<b>—International Recrutment:</b> Temporary contracts\n</string>
 
 
 

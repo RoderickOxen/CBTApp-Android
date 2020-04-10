@@ -47,7 +47,6 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
 
         if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("portuguese")){
             holder.candidate_flag.setImageResource(R.drawable.portuguese);
-
         }
         else if (candidates.get(position).getCandidate_nationality().toLowerCase().equals("spannish")){
             holder.candidate_flag.setImageResource(R.drawable.spanish);

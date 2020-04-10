@@ -58,8 +58,34 @@ public class CandidateProfileActivity extends AppCompatActivity implements View.
         textView = findViewById(R.id.motivation);
         textView.setText(candidate.getCandidate_motivation());
 
+
+
+
         ImageView image = findViewById(R.id.res_image);
-        image.setImageBitmap(candidate.getCandidate_image());
+        if (candidate.getCandidate_nationality().toLowerCase().equals("portuguese")){
+            image.setImageResource(R.drawable.portuguese);
+        }
+        else if (candidate.getCandidate_nationality().toLowerCase().equals("spannish")){
+            image.setImageResource(R.drawable.portuguese);
+        }
+        else if (candidate.getCandidate_nationality().toLowerCase().equals("british")){
+            image.setImageResource(R.drawable.uk);
+        }
+        else if (candidate.getCandidate_nationality().toLowerCase().equals("german")){
+            image.setImageResource(R.drawable.germany);
+        }
+        else if (candidate.getCandidate_nationality().toLowerCase().equals("italian")){
+            image.setImageResource(R.drawable.italian);
+        }
+        else if (candidate.getCandidate_nationality().toLowerCase().equals("brazilian")){
+            image.setImageResource(R.drawable.brazil);
+        }
+
+
+
+
+
+
 
         textView = findViewById(R.id.keywords);
         textView.setText(candidate.getCandidate_keyowrds());

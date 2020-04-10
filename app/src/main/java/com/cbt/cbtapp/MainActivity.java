@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                             ds.child("Relevant Industries").getValue().toString(),
                             ds.child("Residence").getValue().toString(),
                             ds.child("Salary Expectation").getValue().toString(),
+                            ds.child("Nationality").getValue().toString(),
                             ds.child("YearsOfExperience").getValue().toString(),
                             //set country flag a null will be setted on STEP3
                             null);
@@ -130,6 +131,7 @@ public class MainActivity extends AppCompatActivity {
                             ds.child("Residence").getValue().toString(),
                             ds.child("Salary Expectation").getValue().toString(),
                             ds.child("YearsOfExperience").getValue().toString(),
+                            ds.child("Nationality").getValue().toString(),
                             //set country flag a null will be setted on STEP3
                             null);
 
@@ -142,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     Log.w("Motivation", String.valueOf(ds.child("Motivation to work abroad").getValue()));
                     Log.w("Relevant", String.valueOf(ds.child("Relevant Industries").getValue()));
                     Log.w("Residence", String.valueOf(ds.child("Residence").getValue()));
+                    Log.w("Nationality", String.valueOf(ds.child("Nationality").getValue()));
                     Log.w("Salary", String.valueOf(ds.child("Salary Expectation").getValue()));
                     Log.w("YearsOfExperience", String.valueOf(ds.child("YearsOfExperience").getValue()));
 

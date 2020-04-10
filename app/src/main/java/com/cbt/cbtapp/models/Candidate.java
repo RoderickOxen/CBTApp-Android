@@ -13,11 +13,12 @@ public class Candidate {
     private String candidate_residence;
     private String candidate_salary;
     private String candidate_experience;
+    private String candidate_nationality;
     private Bitmap candidate_image;
 
 
 
-    public Candidate(String candidate_id, String candidate_title,String candidate_academic, String candidate_keyowrds, String candidate_motivation, String candidate_industries, String candidate_residence, String candidate_salary, String candidate_experience, Bitmap candidate_image) {
+    public Candidate(String candidate_id, String candidate_title,String candidate_academic, String candidate_keyowrds, String candidate_motivation, String candidate_industries, String candidate_residence, String candidate_salary, String candidate_experience, String candidate_nationality,Bitmap candidate_image) {
         this.candidate_id = candidate_id;
         this.candidate_title = candidate_title;
         this.candidate_academic = candidate_academic;
@@ -27,7 +28,16 @@ public class Candidate {
         this.candidate_residence = candidate_residence;
         this.candidate_salary = candidate_salary;
         this.candidate_experience = candidate_experience;
+        this.candidate_nationality = candidate_nationality;
         this.candidate_image = candidate_image;
+    }
+
+    public String getCandidate_nationality() {
+        return candidate_nationality;
+    }
+
+    public void setCandidate_nationality(String candidate_nationality) {
+        this.candidate_nationality = candidate_nationality;
     }
 
     public Bitmap getCandidate_image() {

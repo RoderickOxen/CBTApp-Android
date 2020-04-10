@@ -34,11 +34,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    //fragments variables
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private FragmentsAdapter viewPagerAdapter;
     private ArrayList<Fragment> fragmentArrayList;
     private ArrayList<String> fragmentTitles;
+
+    //List of candidates to be passed to the main fragments
     private ArrayList<Candidate> candidates_talentLeasing = new ArrayList<Candidate>();
     private ArrayList<Candidate> candidates_interRecrut = new ArrayList<Candidate>();
 
@@ -49,9 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
     //Firebase Storage Access
     private FirebaseStorage storage;
+
+
+    //TO DOO
     Bitmap image = null;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

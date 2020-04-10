@@ -1,9 +1,7 @@
 package com.cbt.cbtapp.ui;
 
-
 import java.util.ArrayList;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,22 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.cbt.cbtapp.R;
 import com.cbt.cbtapp.models.Candidate;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
 public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapter.ViewHolder> {
 
-    ArrayList<Candidate> candidates_talentLeasing = new ArrayList<Candidate>();
+    //Candidates
+    ArrayList<Candidate> candidates = new ArrayList<Candidate>();
 
     //TO DOO
-    Bitmap images;
     private LayoutInflater inflater;
 
 
-    public MainFragmentAdapter(Context ct, ArrayList<Candidate> candidates){
-        candidates_talentLeasing = candidates;
+    public MainFragmentAdapter(Context ct, ArrayList<Candidate> c){
+        candidates = c;
         inflater = LayoutInflater.from(ct);
     }
     @NonNull
@@ -38,17 +35,15 @@ public class MainFragmentAdapter extends RecyclerView.Adapter<MainFragmentAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MainFragmentAdapter.ViewHolder holder, int position) {
-        holder.candidate_title.setText(candidates_talentLeasing.get(position).getCandidate_title());
-        holder.candidate_residence.setText("Residence: "+candidates_talentLeasing.get(position).getCandidate_residence());
-        holder.candidate_experience.setText("Years of Experience: "+candidates_talentLeasing.get(position).getCandidate_experience()+" years");
-        holder.candidate_flag.setImageBitmap(candidates_talentLeasing.get(position).getCandidate_image());
-
-        //holder.imageView.setImageResource(R.drawable.ic_android_black_24dp);
+        holder.candidate_title.setText(candidates.get(position).getCandidate_title());
+        holder.candidate_residence.setText("Residence: "+candidates.get(position).getCandidate_residence());
+        holder.candidate_experience.setText("Years of Experience: "+candidates.get(position).getCandidate_experience()+" years");
+        holder.candidate_flag.setImageBitmap(candidates.get(position).getCandidate_image());
     }
 
     @Override
     public int getItemCount() {
-        return candidates_talentLeasing.size();
+        return candidates.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

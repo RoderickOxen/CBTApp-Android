@@ -6,11 +6,14 @@
 
     <string name="HomeIntro"><b>CBT</b> is a specialist recruitment consultancy with a network of recruitment partners across the Globe.
         \n\n <u>Click here to find out more.</u></string>
+
     <string name="ExplainText">Every week we share Top Profiles from our <b>Talent Pool</b>.
         \n\nWe give a taste of our best profiles from <b> Engineering</b>, <b>ICT</b>, and <b>BPO Tech</b>.
         \n\nThis app is a quick way to find all the best candidates from 2 categories:
         \n<b>—Talent Leasing:</b> Permanent contracts
         \n<b>—International Recrutment:</b> Temporary contracts\n</string>
+
+    <string name="AccessPoolText"><b>Want to have access</b> to the full list of candidates?\nTo Request access to our <b>Talent Pool</b> you just need to send us your information.\n</string>
 
 
 

@@ -6,12 +6,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
 import com.cbt.cbtapp.MainActivity;
 import com.cbt.cbtapp.R;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,9 +20,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //Declaration
         Button aboutUs = (Button) findViewById(R.id.introText);
         Button enterApp = (Button) findViewById(R.id.enterApp);
+        Button requestAcessHome = (Button) findViewById(R.id.requestAcessHome);
+
 
         aboutUs.setOnClickListener(HomeActivity.this);
         enterApp.setOnClickListener(HomeActivity.this);
+        requestAcessHome.setOnClickListener(HomeActivity.this);
+
 
     }
 
@@ -45,6 +46,15 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(HomeActivity.this, MainActivity.class);
                 startActivity(intent);
                 break;
+            }
+
+
+            case R.id.requestAcessHome:{
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto","cbt@cbt.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Access pool request");
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hi, I want permission to access the pool");
+                startActivity(Intent.createChooser(emailIntent, "Send email..."));
             }
         }
 

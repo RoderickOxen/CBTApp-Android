@@ -1,92 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/gradiant_bg">
-
-
-    <ImageView
-        android:id="@+id/imageDetail"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/maxresdefault"
-        android:scaleType="centerCrop"
-        />
-
-    <ImageView
-        android:id="@+id/imageDetail1"
-        android:layout_width="225dp"
-        android:layout_height="300dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo3"
-        />
+        android:layout_height="match_parent"
+        android:background="@drawable/gradiant_bg">
 
 
-    <Button
-        android:id="@+id/introText"
-        android:layout_width="333dp"
-        android:layout_height="100dp"
-        android:textAllCaps="false"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/gradiant_bg_2"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="top"
-        android:text="@string/HomeIntro"
-        android:textColor="@color/black1"
-        android:textSize="14sp"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        <Button
+            android:id="@+id/requestAcessHome"
+            android:layout_width="128dp"
+            android:layout_height="74dp"
+            android:background="@color/blueTec3"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Access Pool"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.965" />
 
-    <TextView
-        android:id="@+id/introText2"
-        android:layout_width="334dp"
-        android:layout_height="273dp"
-        android:textAllCaps="false"
-        android:background="@drawable/gradiant_bg_2"
-        android:fontFamily="sans-serif-condensed"
-        android:gravity="top"
-        android:padding="15dp"
-        android:text="@string/ExplainText"
-        android:textColor="@color/black1"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.842" />
+        <TextView
+            android:id="@+id/introText3"
+            android:layout_width="334dp"
+            android:layout_height="134dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/gradiant_bg_2"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="top"
+            android:padding="15dp"
+            android:text="@string/AccessPoolText"
+            android:textAllCaps="false"
+            android:textColor="@color/black1"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/introText2" />
 
-    <Button
-        android:id="@+id/enterApp"
-        android:layout_width="128dp"
-        android:layout_height="74dp"
-        android:background="@color/blueTec3"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Enter App"
-        android:textColor="@color/white"
-        android:textAllCaps="false"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945" />
+        <ImageView
+            android:id="@+id/imageDetail"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/maxresdefault" />
+
+        <ImageView
+            android:id="@+id/imageDetail1"
+            android:layout_width="225dp"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo3"
+            />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/introText"
+            android:layout_width="333dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/gradiant_bg_2"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="top"
+            android:padding="15dp"
+            android:text="@string/HomeIntro"
+            android:textAllCaps="false"
+            android:textColor="@color/black1"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.358" />
+
+        <TextView
+            android:id="@+id/introText2"
+            android:layout_width="334dp"
+            android:layout_height="273dp"
+            android:background="@drawable/gradiant_bg_2"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="top"
+            android:padding="15dp"
+            android:text="@string/ExplainText"
+            android:textAllCaps="false"
+            android:textColor="@color/black1"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.519"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.617" />
+
+        <Button
+            android:id="@+id/enterApp"
+            android:layout_width="128dp"
+            android:layout_height="74dp"
+            android:background="@color/blueTec3"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Enter App"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.741" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="50dp"
+            android:layout_height="711dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageDetail" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
